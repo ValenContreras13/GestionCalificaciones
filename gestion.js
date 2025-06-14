@@ -3,7 +3,7 @@
 let estudiantes = [{
     nombre:"Sofia",calificaciones:[90,87,65,43]
 },{
-    nombre:"Juan",calificaciones:[67,98,46,88]
+    nombre:"Juan",calificaciones:[]
 },{
     nombre:"Sebastian",calificaciones:[76,89,75,68]
 },{
@@ -20,7 +20,9 @@ obtenerMejorCalificacion(estudiantes);
 console.log("***********************************");
 obtenerPeorCalificacion(estudiantes);
 console.log("***********************************");
-agregarCalificacion("Pepito",34);
+agregarCalificacion("Sofia",34);
+console.log("***********************************");
+eliminarUltimaCalificacion("Pepito");
 
  function mostrarEstudiantes(){
     estudiantes.forEach(function(x){
@@ -96,6 +98,26 @@ function agregarCalificacion(nombreEstudiante,nuevaCalificacion){
     }else {
         console.log("El estudiante no existe");
         }
-         }
+}
 
+
+function eliminarUltimaCalificacion(nombreEstudiante) {
+  let indice = estudiantes.findIndex(function(est) {
+    return est.nombre === nombreEstudiante;
+  });
+
+  if (indice !== -1) {
+    let calificaciones = estudiantes[indice].calificaciones;
+
+    if (Array.isArray(calificaciones) && calificaciones.length > 0) {
+      let eliCalificacion = calificaciones.pop();
+      console.log(`Se eliminó la última calificación (${eliCalificacion}) del estudiante ${nombreEstudiante}.`);
+    } else {
+      console.log(`El estudiante ${nombreEstudiante} no tiene calificaciones.`);
+    }
+
+  } else {
+    console.log(`El estudiante ${nombreEstudiante} no existe.`);
+  }
+}
 
