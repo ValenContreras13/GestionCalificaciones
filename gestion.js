@@ -12,23 +12,64 @@ let estudiantes = [{
     nombre:"Diana",calificaciones:[76,62,87,57]
 },];
 
-mostrarEstudiantes();
-console.log("***********************************");
-calcularPromedio(estudiantes);
-console.log("***********************************");
-obtenerMejorCalificacion(estudiantes);
-console.log("***********************************");
-obtenerPeorCalificacion(estudiantes);
-console.log("***********************************");
-agregarCalificacion("Sofia",34);
-console.log("***********************************");
-eliminarUltimaCalificacion("Pepito");
-console.log("***********************************");
- filtrarEstudiantesAprobados(72);
- console.log("***********************************");
- ordenarEstudiantesPorNombre();
- console.log("***********************************");
- generarReporteIndividual("Sofia");
+let opcion = prompt("Ingresa una opción:   \n 1. Mostrar Todos los estudiantes \n 2. Promedio de Notas Estudiantes \n 3. Obtener Mejor Estudiante por Estudiante \n 4. Obtener Peor Estudiante por Estudiante \n 5. Agregar Calificación a Estudiante \n 6. Eliminar Calificación de Estudiante \n 7. Filtrar Estudiantes Aprobados \n 8. Ordenar Estudiantes por nombre \n 9. Generar reporte individual");
+let opcionNum = parseInt(opcion);
+iniciarGestionCalificaciones(opcionNum);
+
+
+function iniciarGestionCalificaciones(opcionNum){
+switch(opcionNum){
+    case 1:
+        mostrarEstudiantes();
+        break;
+    case 2:
+        calcularPromedio(estudiantes);
+        break;   
+    case 3:
+        obtenerMejorCalificacion(estudiantes);
+        break;
+    case 4:
+        obtenerPeorCalificacion(estudiantes);
+        break;
+    case 5:
+        agregarCalificacion("Sofia",34);
+        break;
+    case 4:
+        eliminarUltimaCalificacion("Pepito");
+        break;
+    case 6:
+         filtrarEstudiantesAprobados(72);
+        break;
+    case 7:
+         ordenarEstudiantesPorNombre();
+        break;
+    case 8:
+         filtrarEstudiantesAprobados(72);
+        break;
+    case 9:
+          generarReporteIndividual("Sofia");
+        break;
+        default:
+            console.log("Opcion invalida");          
+}
+}
+// mostrarEstudiantes();
+// console.log("***********************************");
+// calcularPromedio(estudiantes);
+// console.log("***********************************");
+// obtenerMejorCalificacion(estudiantes);
+// console.log("***********************************");
+// obtenerPeorCalificacion(estudiantes);
+// console.log("***********************************");
+// agregarCalificacion("Sofia",34);
+// console.log("***********************************");
+// eliminarUltimaCalificacion("Pepito");
+// console.log("***********************************");
+//  filtrarEstudiantesAprobados(72);
+//  console.log("***********************************");
+//  ordenarEstudiantesPorNombre();
+//  console.log("***********************************");
+//  generarReporteIndividual("Sofia");
 
  function mostrarEstudiantes(){
     estudiantes.forEach(function(x){
